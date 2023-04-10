@@ -1,12 +1,16 @@
 @font-face {
-    font-family: batmanFO;
-    src: url(/public/fonts/batmanForever/batFO.ttf);
+    font-family: RapidTech;
+    src: url(../public/fonts/RapidTechRegular.ttf);
+}
+@font-face {
+    font-family: RapidTechHollow;
+    src: url(../public/fonts/RapidTechHollow.ttf);
 }
 .header {
     display: flex;
     align-items: center;
     padding: 1em 3%;
-    /* background-color: #006494; */
+    background-color: #13005A;
     width: 100%;
     margin: auto;
 }
@@ -15,14 +19,15 @@
 }
 .title {
     margin-right: auto;
-    color: #e8f1f2;
-    font-size: 2.5rem;
+    font-size: 6rem;
+    font-weight: 600;
+    font-family: 'RapidTechHollow';
+    color: #03C988;
 }
 .links {
-    font-family: batmanFO;
     list-style: none;
     font-weight: 800;
-    color: #e8f1f2;
+    color: #03C988;
     text-decoration: none;
     cursor: pointer;
     display: inline;
@@ -31,6 +36,6 @@
 }
 .links:hover {
     color: #e8f1f2;
-    background-color: #b8336a;
+    background-color: #03C988;
     border-radius: 5px;
 }

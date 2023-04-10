@@ -1,9 +1,4 @@
-@font-face {
-     font-family: batmanFO;
-     src: url(/public/fonts/batmanForever/batFO.ttf);
- }
 .btn {
      margin-left: 3%;
-     color: #E8F1F2;
-     font-family: batmanFO;
+     color: #1b202b;
 }
