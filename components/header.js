@@ -16,7 +16,7 @@ function Header() {
         </BreadcrumbItem>
 
         <BreadcrumbItem className={styles.links}>
-          <Link href='/about'>About</Link>
+          <Link href='/construction'>About</Link>
         </BreadcrumbItem>
 
         <BreadcrumbItem className={styles.links}>
@@ -24,11 +24,11 @@ function Header() {
         </BreadcrumbItem>
 
         <BreadcrumbItem className={styles.links}>
-          <Link href='/collections'>Collections</Link>
+          <Link href='/construction'>Collections</Link>
         </BreadcrumbItem>
 
         <BreadcrumbItem className={styles.links}>
-          <Link href='/decks'>Decks</Link>
+          <Link href='/construction'>Decks</Link>
           <BreadcrumbSeparator />
         </BreadcrumbItem>
       </Breadcrumb>  

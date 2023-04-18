@@ -10,9 +10,11 @@
     display: flex;
     align-items: center;
     padding: 1em 3%;
-    background-color: #13005A;
+    background-color: lightgrey;
+    /* background-color: #13005A; */
     width: 100%;
     margin: auto;
+    
 }
 .logo {
     margin-right: 3%;
@@ -22,12 +24,15 @@
     font-size: 6rem;
     font-weight: 600;
     font-family: 'RapidTechHollow';
-    color: #03C988;
+    color: darkred;
+    /* color: #03C988; */
 }
 .links {
     list-style: none;
     font-weight: 800;
-    color: #03C988;
+    color: darkred;
+
+    /* color: #03C988; */
     text-decoration: none;
     cursor: pointer;
     display: inline;
@@ -36,6 +41,7 @@
 }
 .links:hover {
     color: #e8f1f2;
-    background-color: #03C988;
+    /* background-color: #03C988; */
+    background-color: darkred;
     border-radius: 5px;
 }

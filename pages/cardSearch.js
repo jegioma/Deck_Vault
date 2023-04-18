@@ -1,14 +1,15 @@
 import {
-     Box, Input, InputGroup, InputLeftElement, Image, Heading, Button, Center
+     Box, Input, InputGroup, InputLeftElement, Image, Card, Button, Center, HStack, ScaleFade
     } from '@chakra-ui/react';
 import styles from '../styles/cardSearch.module.css';
 import React, { useEffect, useState, memo } from 'react';
-import { SearchIcon } from '@chakra-ui/icons';
+import { SearchIcon, CheckIcon, AddIcon } from '@chakra-ui/icons';
 import CardDetails  from '../components/cardDetails';
 
 export default function CardSearch() {
  
     const MemoizedImage = memo(Image);
+    const MemoCard = memo(Card);
     const [ cardName, setCardName ] = useState('');
     const [ selectedCard, setSelectedCard ] = useState(null);
     const [ numResults, setNumResults ] = useState(12);
@@ -60,16 +61,21 @@ export default function CardSearch() {
                 <div className={styles.card_layout}>
                     {
                         cardList.length > 0 && cardList.map(card => (
-                            <MemoizedImage
+                            <MemoCard>
+                                <MemoizedImage
                                 key={card.id}
                                 src={card.card_images[0].image_url}
                                 alt={card.cardName}
                                 onClick={() => handleCardClick(card) }
-                            ></MemoizedImage>
+                                ></MemoizedImage>
+                                <HStack>
+                                    <Button>Add to Collection</Button> <CheckIcon /><AddIcon />
+                                </HStack>
+                            </MemoCard>
                             )
                         )
                     }
-                    <Button bg='white' onClick={loadMoreCards} transition={'all 0.3s ease 0.3s'}>Load More</Button>
+                    <Button bg='white' onClick={loadMoreCards} transition={'all 0.5s ease 0.5s'}>Load More</Button>
                 </div>   
                 {
                     selectedCard && (
