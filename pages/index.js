@@ -17,6 +17,7 @@ export default function Index() {
     .then(response => response.json())
     .then(data => setCardName(data))
     .catch(error => console.error(error)); 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -28,7 +29,7 @@ export default function Index() {
             <Container className={styles.text_ctn}>
               <Heading align='right' fontSize='5xl' color='darkred'>Made for players who need a quick and simple way to search for cards</Heading>
                 <Text fontSize='2xl' align='right' color='black' className={styles.text}>
-                  Whether you're a verteran or a beginner, stay up to date and organized
+                  Whether you are a verteran or a beginner, stay up to date and organized
                 </Text>
                 <HStack className={styles.hStack} spacing='80px' marginLeft='35%' marginTop='10%'>
                   <Button className={styles.login_btn} bg='darkred' size='lg' color='white' _hover={{ bg: 'darkred', border: 'solid #e8f1f2 3px', transition: 'all 0.3s ease 0s'}}>

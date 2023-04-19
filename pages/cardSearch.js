@@ -10,7 +10,10 @@ export default function CardSearch() {
  
     const MemoizedImage = memo(Image);
     const MemoCard = memo(Card);
-    const [ cardName, setCardName ] = useState('');
+    // const [ cardName, setCardName ] = useState('');
+    const cardName = '';
+    const setCardName = '';
+
     const [ selectedCard, setSelectedCard ] = useState(null);
     const [ numResults, setNumResults ] = useState(12);
     const [ cardList, setCardList ] = useState([]);
@@ -54,16 +57,16 @@ export default function CardSearch() {
     return (
         <Box className={styles.container}>
             <InputGroup size='lg' className={styles.input}>
-                <InputLeftElement pointerEvents='none' children={ <SearchIcon /> } />
+                <InputLeftElement pointerEvents='none' noChildren={ <SearchIcon /> } />
                 <Input type='text' bg='#e8f1f2' placeholder='Search for a card' id='cardName' value={cardName} onChange={(event) => setCardName(event.target.value)} onKeyDown={handleSearch} />
             </InputGroup>
             <Center className={styles.card_display}> 
                 <div className={styles.card_layout}>
                     {
                         cardList.length > 0 && cardList.map(card => (
-                            <MemoCard>
+                            <MemoCard key={card.id}>
                                 <MemoizedImage
-                                key={card.id}
+                                // key={card.id}
                                 src={card.card_images[0].image_url}
                                 alt={card.cardName}
                                 onClick={() => handleCardClick(card) }
