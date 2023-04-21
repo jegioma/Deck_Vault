@@ -9,8 +9,8 @@ function Header() {
     <header className={styles.header}>
       <Image src='/DVLogo.svg' alt="Deck Vault Logo" width={100} height={100} className={styles.logo}/>
 
-      <Heading  fontFamily='RapidTech' fontSize='8xl' fontWeight='extrabold' className={styles.title}>DECK VAULT</Heading>
-      <Breadcrumb fontSize='large'>
+      <Heading  fontFamily='RapidTech' fontSize='6xl' fontWeight='extrabold' className={styles.title}>DECK VAULT</Heading>
+      <Breadcrumb fontSize='md'>
         <BreadcrumbItem className={styles.links}>
           <Link href='/'>Home</Link>
         </BreadcrumbItem>
