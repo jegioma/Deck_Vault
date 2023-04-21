@@ -9,7 +9,7 @@
 .header {
     display: flex;
     align-items: center;
-    padding: 1em 3%;
+    padding: 1em 1%;
     background-color: lightgrey;
     /* background-color: #13005A; */
     width: 100%;
@@ -18,18 +18,19 @@
 }
 .logo {
     margin-right: 3%;
+    margin-left: 2%;
 }
 .title {
     margin-right: auto;
     font-size: 6rem;
-    font-weight: 600;
+    font-weight: 700;
     font-family: 'RapidTechHollow';
     color: darkred;
     /* color: #03C988; */
 }
 .links {
     list-style: none;
-    font-weight: 800;
+    font-weight: 700;
     color: darkred;
 
     /* color: #03C988; */

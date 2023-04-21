@@ -1,0 +1,38 @@
+.heading {
+    padding: 1em;
+    color: #e8f1f2;
+}
+.modal_body {
+    background-color: lightgrey;
+}
+.desc_ctn {
+    padding: 1em;
+}
+.headers {
+    color: #800000;
+    margin-bottom: 5px;
+}
+.line {
+    height: 5px;
+    border: none;
+    background-color: #800000;
+}
+.text {
+    color: #800000;
+}
+.stats {
+    color: #800000;
+    align-self: self-start;
+    margin-left: 5px;
+    padding: 0.5em;
+    border: ridge #800000 5px;
+}
+.modal_btn {
+    float: right;
+    color: #e8f1f2;
+}
+.modal_btn:hover {
+    background-color: #e8f1f2;
+    color: #800000;
+    border: solid #800000 3px;
+}
