@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styles from '../styles/header.module.css';
-import { Breadcrumb, Heading, BreadcrumbItem, BreadcrumbSeparator } from '@chakra-ui/react'
-import LoginButton from './loginButton.js';
+import { Breadcrumb, Heading, BreadcrumbItem, BreadcrumbSeparator, Button, defineStyle, defineStyleConfig } from '@chakra-ui/react'
 import Link from "next/link";
 
 function Header() {
@@ -33,7 +32,9 @@ function Header() {
         </BreadcrumbItem>
       </Breadcrumb>  
 
-      <LoginButton />
+      <Button bg='#800000' color='#ecf1f2' _hover={{ color: '#800000', backgroundColor: '#ecf1f2', border: 'solid #800000 3px', transition: 'all 0.3s ease 0s'}} fontSize='sm' margin='1%'>
+        <Link href='/login'>ACCOUNT</Link>
+      </Button>
     </header>
   );
 }
