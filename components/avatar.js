@@ -66,7 +66,7 @@ export default function Avatar({ uid, url, size, onUpload }) {
       setUploading(false)
     }
   }
-
+  
   return (
     <>
         <VStack boxSize='3xs'>
