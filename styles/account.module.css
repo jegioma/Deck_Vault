@@ -1,0 +1,21 @@
+.container {
+    padding: 10px;
+    border: solid green 5px;
+    height: 80%;
+    width: 90%;
+    margin: auto;
+}
+.form {
+    background-color: lightgrey;
+
+}
+.btn {
+    color: #ecf1f2;
+ 
+    margin: 5px;
+}
+.btn:hover {
+    background-color: #ecf1f2;
+    color: #800000;
+    border: #800000 solid 3px;
+}
