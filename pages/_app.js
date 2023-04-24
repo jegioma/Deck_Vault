@@ -1,18 +1,20 @@
-import "../styles/global.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import Header from "../components/header";
-import styles from '../styles/global.css';
+import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
+import { SessionContextProvider } from "@supabase/auth-helpers-react";
+import { useState } from "react";
 
+function App({ Component, pageProps }) {
+    const [ supabaseClient ] = useState(() => createBrowserSupabaseClient());
 
-export default function App({Component, pageProps}) {
     return (
-        <>
-            <ChakraProvider>
+        <ChakraProvider>
+            <SessionContextProvider supabaseClient={supabaseClient} initialSession={pageProps.initialSession} >
                 <Header />
-                <main className={styles.background}>
-                    <Component {...pageProps} />
-                </main>
-            </ChakraProvider>
-        </>
+                <Component {...pageProps} />
+            </SessionContextProvider> 
+        </ChakraProvider>
     );
 }
+
+export default App;
