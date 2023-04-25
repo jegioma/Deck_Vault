@@ -24,19 +24,6 @@ export default function Avatar({ uid, url, size, onUpload }) {
     if (url) downloadImage(url)
   }, [url, supabase.storage])
 
-//   async function downloadImage(path) {
-//     try {
-//       const { data, error } = await supabase.storage.from('avatars').download(path)
-//       if (error) {
-//         throw error
-//       }
-//       const url = URL.createObjectURL(data)
-//       setAvatarUrl(url)
-//     } catch (error) {
-//       console.log('Error downloading image: ', error)
-//     }
-//   }
-
   const uploadAvatar = async (event) => {
     try {
       setUploading(true)
@@ -66,10 +53,10 @@ export default function Avatar({ uid, url, size, onUpload }) {
       setUploading(false)
     }
   }
-  
+
   return (
     <>
-        <VStack boxSize='3xs'>
+        <VStack boxSize='3xs'  marginLeft={-5}>
             {
                 avatarUrl ? (
                     <Image
@@ -82,7 +69,7 @@ export default function Avatar({ uid, url, size, onUpload }) {
                     <Box className={styles.image} style={{height: size, width: size}} />
                 )
             }
-            <FormLabel htmlFor='single' bg='#800000' width={size} className={styles.btn}>
+            <FormLabel htmlFor='single' bg='#800000' width={size} textAlign='center' className={styles.btn}>
                 {uploading ? 'Uploading...' : 'Upload'}
             </FormLabel>
             <input 
