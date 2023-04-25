@@ -5,6 +5,7 @@ import styles from '../styles/cardSearch.module.css';
 import React, { useEffect, useState, memo } from 'react';
 import { SearchIcon, CheckIcon, AddIcon } from '@chakra-ui/icons';
 import CardDetails  from '../components/cardDetails';
+import { Auth } from '@supabase/auth-ui-react';
 
 export default function CardSearch() {
 
@@ -16,6 +17,8 @@ export default function CardSearch() {
    const [ cardList, setCardList ] = useState([]);
    const [ cardInfo, setCardInfo ] = useState('');
    const [ hasNoResults, setHasNoResults ] = useState(false);
+   const [ showCollectionsModal, setShowCollectionsModal ] = useState(false);
+//    const { user } = useAuth();
    const url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php';
 
     useEffect(() => {
@@ -36,6 +39,7 @@ export default function CardSearch() {
             console.log(error);
         } 
     }, [numResults, cardInfo]);
+
 
    const handleSearch = (event) => {
     if (event.key === 'Enter') {
@@ -65,6 +69,7 @@ export default function CardSearch() {
 
    const handleCardClick = card => {
        setSelectedCard(card);
+       setShowCollectionsModal(true)
    }
 
    const handleCloseModal = () => {
@@ -101,9 +106,13 @@ export default function CardSearch() {
                             alt={card.cardName}
                             onClick={() => handleCardClick(card) }
                             ></MemoizedImage>
-                            <HStack>
-                                <Button>Add to Collection</Button> <CheckIcon /><AddIcon />
-                            </HStack>
+                            {/* {
+                                user && (
+                                <HStack>
+                                    <Button onClick={() => setShowCollectionsModal(true)}>Add to Collection</Button> <CheckIcon /><AddIcon />
+                                </HStack>
+                                )
+                            } */}
                         </MemoCard>
                            )
                        )
