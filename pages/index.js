@@ -36,7 +36,7 @@ export default function Index() {
                     <Link href='/login'>Get Started</Link><ArrowRightIcon marginLeft='10px' />
                   </Button>
                   <Button className={styles.about_btn} bg='transparent' color='darkred' size='lg' _hover={{transition: 'all 0.3s ease 0s',border: 'solid 3px darkred'}} >
-                    <Link href='/about'>Learn More</Link><InfoIcon marginLeft='10px' />
+                    <Link href='/construction'>Learn More</Link><InfoIcon marginLeft='10px' />
                   </Button>
                 </HStack>
             </Container>
