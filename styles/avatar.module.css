@@ -1,19 +1,19 @@
 .image {
     border: ridge #800000 5px;
     margin: auto;
-    background-color: #ecf1f3;
+    background-color: #ecf1f2;
 }
 .btn {
     text-align: center;
     margin-top: 5px;
-    color: #ecf1f3;
+    color: #ecf1f2;
     background-color: #800000;
     padding: 5px 10px;
     margin: auto;
 }
 .btn:hover {
-    background-color: lightgrey;
-    border: solid 3px #800000;
+    background-color: #ecf1f2;
+    border: solid #800000 3px;
     color: #800000;
-    transition: all 0.2s ease 0.2s;
+    /* transition: all 0.2s ease 0.2s; */
 }

@@ -1,0 +1,38 @@
+.container {
+    padding: 10px;
+    height: 80%;
+    width: 90%;
+    margin: auto;
+
+}
+.form {
+    background-color: lightgrey;
+    margin-left: -25%;
+    width: 120%;
+}
+.btn {
+    color: #ecf1f2;
+    margin: 5px;
+    margin-top: 50px;
+}
+.btn:hover {
+    background-color: #ecf1f2;
+    color: #800000;
+    border: #800000 solid 3px;
+}
+.email {
+    padding: 5px;
+    width: 70%;
+}
+.collections {
+    background-color: #ecf1f2;
+    padding: 10px;
+    border-radius: 5px;
+}
+.icon_btn {
+    margin: 3px;
+}
+.icon_btn:hover {
+    background-color: transparent;
+    border: solid #800000 3px;
+}
