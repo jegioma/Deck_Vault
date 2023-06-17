@@ -1,34 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Deck Vault (Version 1) <img src='/public/images/logo.png' width='60'>
+<hr>
+### Keep track of your Yu-Gi-Oh collection online at [DeckVault.xyz](https://deckvault.xyz)
 
-## Getting Started
+<img src='/public/images/landingPage.png'><br><br>
 
-First, run the development server:
+####This project began as a personal way to organize and filter through my personal collection that spans over 900 cards. The goal is to keep track of what I currently have and how many copies of each one I have. This was done during my spring semester in school for a class project. The goal of this web-app is to give the user the ablilty to search up Yu-Gi-Oh cards throught the official [Yu-Gi-Oh API](https://ygoprodeck.com/api-guide/).
+<hr>
+##Features
+####Creating an account will allow the additional features: 
+- Adding cards to collection
+- Creating multiple seperate collection sets
+- Create decks with the standard 40-60 card limit
+- Set up an avatar for your profile
+<br>
+<img src='/public/images/sampleSearch.gif'>
+<hr>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+##Technologies
+####This project was made with technologies brand new to me, so implementation might not be the best. These include: 
+- NextJS (react framework)
+- ChakraUI (UI library)
+- Supabase (database)
+- Vercel (deployment)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<hr>
+##Features
+####The features might change from the original deployment due to a reworking of the database:
+- Card search (punctuation not necessary for search results)
+-- fuzzy search (enter word and find cards that contain input in their title)
+-- complete name (find a card using complete name)
+- Account registration/login
+-- email verification 
+-- password recovery
+- Card zoom modals
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+##Future implementations
+- Fix collection functionality
+- Create deck functionality
+- Account dashboard to add/edit/delete any collection deck
+- Add cards to collection from zoom modals
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+<hr>
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
