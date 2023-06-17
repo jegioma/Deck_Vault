@@ -5,7 +5,7 @@
 
 <img src='/public/images/landingPage.png'><br><br>
 
-## This project began as a personal way to organize and filter through my personal collection that spans over 900 cards. The goal is to keep track of what I currently have and how many copies of each one I have. This was done during my spring semester in school for a class project. The goal of this web-app is to give the user the ablilty to search up Yu-Gi-Oh cards throught the official [Yu-Gi-Oh API](https://ygoprodeck.com/api-guide/).
+#### This project began as a personal way to organize and filter through my personal collection that spans over 900 cards. The goal is to keep track of what I currently have and how many copies of each one I have. This was done during my spring semester in school for a class project. The goal of this web-app is to give the user the ablilty to search up Yu-Gi-Oh cards throught the official [Yu-Gi-Oh API](https://ygoprodeck.com/api-guide/).
 <hr>
 
 ## Features
