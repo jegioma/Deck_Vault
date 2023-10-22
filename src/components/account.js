@@ -1,12 +1,8 @@
 import {
-    Box, Container, HStack, VStack, Stack, Button, Input, Text, Heading, SimpleGrid, GridItem, UnorderedList, ListItem
+    Container, VStack, Button, Text, Heading, SimpleGrid, UnorderedList, ListItem
 } from '@chakra-ui/react';
-import { AddIcon, EditIcon } from '@chakra-ui/icons';
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
-import { useState, useEffect } from 'react';
-import { supabase } from '@supabase/auth-ui-shared';
-import Avatar from './avatar';
-import { refreshCollection } from '@/pages/api/auth/profile'
+import { useState, useEffect, useCallback } from 'react';
 import { fetchCollections } from '@/pages/api/cardData/collectionAPI';
 
 export default function Account({session}) {
@@ -14,38 +10,53 @@ export default function Account({session}) {
     
     const supabase = useSupabaseClient();
     const user = useUser();
-    const [ collectionName, setCollectionName ] = useState('');
     const [ collections, setCollections ] = useState([]);
 
-    useEffect(() => {
+    const getProfile = useCallback(async (user) => {
+        try {
+          let { data, error, status } = await supabase
+            .from('profiles')
+            .select(`avatar`)
+            .eq('id', user.id)
+            .single();
+      
+          if (error & status !== 406) throw error;
+      
+        //   if (data) setAvatarUrl(data.avatar);
+        } catch (error) {
+          alert('Error loading user data!');
+          console.log(error);
+        }
+      }, [ supabase ]);
+      
+      useEffect(() => {
         getProfile(user);
         fetchCollections(user, supabase)
-        .then((collectionData) => {
+          .then((collectionData) => {
             setCollections(collectionData);
-        }) .catch ((error) => {
+          })
+          .catch((error) => {
             console.log(error);
-        });
-            
+          });
+      }, [session, supabase, user.id, user, getProfile]);
+      
 
-
-    }, [session, supabase, user.id]);
-
-     async function getProfile(user) {
-        try {
-            let { data, error, status } = await supabase
-                .from('profiles')
-                .select(`avatar`)
-                .eq('id', user.id)
-                .single();
+    //  async function getProfile(user) {
+    //     try {
+    //         let { data, error, status } = await supabase
+    //             .from('profiles')
+    //             .select(`avatar`)
+    //             .eq('id', user.id)
+    //             .single();
     
-                if (error & status !== 406) throw error;
+    //             if (error & status !== 406) throw error;
     
-                if (data) setAvatarUrl(data.avatar);
-        } catch (error) {
-            alert('Error loading user data!');
-            console.log(error);
-        }
-    }
+    //             if (data) setAvatarUrl(data.avatar);
+    //     } catch (error) {
+    //         alert('Error loading user data!');
+    //         console.log(error);
+    //     }
+    // }
     
 
     return (

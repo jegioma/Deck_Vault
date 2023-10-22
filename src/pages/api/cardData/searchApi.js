@@ -22,7 +22,7 @@ import {
                         <VStack padding={0} margin={0}>
                                 <Text fontSize='lg' fontWeight='bold' color='#fffeee' alignSelf='flex-end'>ATK: {card.atk} | DEF: {card.def}</Text>
                                 <HStack padding={0} margin={0} alignSelf='flex-end'>
-                                    <Image bg='#222629' src='/attributes/rank.png' width={25} height={25}/>
+                                    <Image bg='#222629' alt='rank' src='/attributes/rank.png' width={25} height={25}/>
                                     <Text fontSize='lg' fontWeight='bold' color='#fffeee'>{card.level} | {card.race} | {card.type}</Text>
                                 </HStack>
                             <Container>
@@ -77,7 +77,7 @@ import {
                         <VStack padding={0} margin={0}>
                                 <Text fontSize='lg' fontWeight='bold' color='#fffeee' alignSelf='flex-end'>ATK: {card.atk} | DEF: {card.def}</Text>
                                 <HStack padding={0} margin={0} alignSelf='flex-end'>
-                                    <Image bg='#222629' src='/attributes/level.png' width={25} height={25}/>
+                                    <Image bg='#222629' alt='level' src='/attributes/level.png' width={25} height={25}/>
                                     <Text fontSize='lg' fontWeight='bold' color='#fffeee'>{card.level} | {card.race} | {card.type}</Text>
                                 </HStack>
                             <Container>
@@ -100,7 +100,7 @@ import {
                     <Stack display='inline' margin={0} padding={0}>
                         <Image
                             src={card.card_images[0].image_url}
-                            alt='card.name'
+                            alt={card.name}
                             float='left'
                             height='25rem'
                             padding={5}
@@ -108,7 +108,7 @@ import {
                         <VStack padding={0} margin={0}>
                         <Text fontSize='lg' fontWeight='bold' color='#fffeee' alignSelf='flex-end'>ATK: {card.atk} | DEF: {card.def}</Text>
                             <HStack padding={0} margin={0} alignSelf='flex-end'>
-                                <Image bg='#222629' src='/attributes/level.png' width={25} height={25}/>
+                                <Image bg='#222629' alt='level' src='/attributes/level.png' width={25} height={25}/>
                                 <Text fontSize='lg' fontWeight='bold' color='#fffeee'>{card.level} | SCALE - {card.scale} | {card.race} | {card.type}</Text>
                             </HStack>
                             <Container alignSelf='flex-end'>
@@ -145,7 +145,7 @@ import {
                         <Stack display='inline' margin={0} padding={0}>
                             <Image
                                 src={card.card_images[0].image_url}
-                                alt='card.name'
+                                alt={card.name}
                                 float='left'
                                 height='25rem'
                                 padding={5}
@@ -153,7 +153,7 @@ import {
                             <VStack padding={0} margin={0}>
                             <Text fontSize='lg' fontWeight='bold' color='#fffeee' alignSelf='flex-end'>ATK: {card.atk} | DEF: {card.def}</Text>
                                 <HStack padding={0} margin={0} alignSelf='flex-end'>
-                                    <Image bg='#222629' src='/attributes/rank.png' width={25} height={25}/>
+                                    <Image bg='#222629' alt='rank' src='/attributes/rank.png' width={25} height={25}/>
                                     <Text fontSize='lg' fontWeight='bold' color='#fffeee'>{card.level} | SCALE - {card.scale} | {card.race} | {card.type}</Text>
                                 </HStack>
                                 <Container alignSelf='flex-end'>
@@ -191,7 +191,7 @@ import {
                     <Stack display='inline' margin={0} padding={0}>
                         <Image
                             src={card.card_images[0].image_url}
-                            alt='card.name'
+                            alt={card.name}
                             float='left'
                             height='25rem'
                             padding={5}

@@ -1,6 +1,6 @@
 import { Auth } from "@supabase/auth-ui-react";
 import { useSupabaseClient, useSession } from "@supabase/auth-helpers-react";
-import loginTheme from "./themes/loginTheme";
+import loginTheme from "../components/themes/loginTheme";
 import Account from "@/components/account";
 import { Box } from '@chakra-ui/react'
 

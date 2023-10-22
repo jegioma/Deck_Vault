@@ -5,12 +5,12 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="icon" href="/images/logo.png" /> 
+          <link rel="icon" href="/images/logo.png" />
         </Head>
-        <Body>
+        <body>
           <Main />
           <NextScript />
-        </Body>
+        </body>
       </Html>
     );
   }

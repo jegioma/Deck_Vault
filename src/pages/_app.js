@@ -4,7 +4,7 @@ import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs'
 import { SessionContextProvider } from '@supabase/auth-helpers-react'
 import { useState } from 'react'
 
-import theme from './themes/backgroundTheme';
+import theme from '../components/themes/backgroundTheme';
 import Header from '@/components/header';
 
   function MyApp({ Component, pageProps }) {

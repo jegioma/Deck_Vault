@@ -1,7 +1,6 @@
 import ModalBodyType from '@/pages/api/cardData/searchApi';
 import {
-    Modal, ModalOverlay, ModalContent, Heading, Image, 
-    HStack
+    Modal, ModalOverlay, ModalContent, Heading, Image, HStack
 } from '@chakra-ui/react'; 
 
 export default function CardDetails({ card, isOpen, onClose }) {
@@ -35,7 +34,7 @@ export default function CardDetails({ card, isOpen, onClose }) {
             <ModalContent>
                 <HStack bg='#61892f' padding={5}>
                     <Heading width='100%' size='xl' bg='#61892f' color='#fffeee' align='center'>{card.name}</Heading>
-                    <Image bg='#61892f' src={cardAttribute(card)} width={50} height={50}/>
+                    <Image bg='#61892f' alt={card.cardName} src={cardAttribute(card)} width={50} height={50}/>
                 </HStack>
                 {
                     <ModalBodyType card={card} />

@@ -1,32 +1,48 @@
 import { useEffect, useState } from "react";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import {
-    VStack, Box, Image, FormLabel, Box,  Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton
+    Image, FormLabel, Box,  Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton
 } from '@chakra-ui/react';
 
-export default function Avatar({ uid, size, onAvatarSelect }) {
+export default function Avatar({ uid, size, onAvatarSelect, url }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const supabase = useSupabaseClient();
     const [ avatarUrl, setAvatarUrl ] = useState(null);
     const [ uploading, setUploading ] = useState(false);
 
+    // useEffect(() => {
+    //     async function downloadImage(path) {
+    //         try {
+    //             const { data, error } = await supabase.storage.from('avatar').download(path);
+    //             if (error) {throw error};
+
+    //             const url = URL.createObjectURL(data);
+    //             setAvatarUrl(url);
+    //         } catch (error) {
+    //             alert('Error downloading image!');
+    //             console.log(error);
+    //         }
+    //     }
+
+    //     if (url) downloadImage(url);
+    // }, [url, supabase]);
     useEffect(() => {
-        async function downloadImage(path) {
-            try {
-                const { data, error } = await supabase.storage.from('avatar').download(path);
-                if (error) {throw error};
+      async function downloadImage(path) {
+          try {
+              const { data, error } = await supabase.storage.from('avatar').download(path);
+              if (error) { throw error; }
 
-                const url = URL.createObjectURL(data);
-                setAvatarUrl(url);
-            } catch (error) {
-                alert('Error downloading image!');
-                console.log(error);
-            }
-        }
+              const imageUrl = URL.createObjectURL(data);
+              setAvatarUrl(imageUrl);
+          } catch (error) {
+              alert('Error downloading image!');
+              console.log(error);
+          }
+      }
 
-        if (url) downloadImage(url);
-    }, [url, supabase]);
+      if (url) downloadImage(url);
+  }, [url, supabase]);
 
     async function fetchAvatarPaths() {
         try {
