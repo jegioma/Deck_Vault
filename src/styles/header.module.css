@@ -1,0 +1,33 @@
+@font-face {
+    font-family: RapidTech;
+    src: url(/fonts/RapidTechRegular.ttf);
+}
+.header {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    margin: 0;    
+}
+
+.title {
+    margin-right: auto;
+    font-size: 6rem;
+    font-weight: 700;
+    color: #61892F;
+    margin-left: 2rem;
+}
+.links {
+    list-style: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #61892F;
+    cursor: pointer;
+    display: inline;
+    padding: 0em 0.5em;
+    transition: all 0.3s ease 0s;
+}
+.links:hover {
+    color: #222629;
+    background-color: #86C232;
+    border-radius: 5px;
+}
