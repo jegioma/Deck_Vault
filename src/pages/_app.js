@@ -23,6 +23,5 @@ import Header from '@/components/header';
       </SessionContextProvider>
     );
   }
-  
 
 export default MyApp;

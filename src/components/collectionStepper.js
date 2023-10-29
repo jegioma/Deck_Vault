@@ -5,7 +5,7 @@ import {
 import { ChevronRightIcon, ArrowRightIcon } from '@chakra-ui/icons'
 import { useState } from 'react'
 
-export default function CollectionStepper({card}) {
+export default function CollectionStepper({ card}) {
 
     const [ cardAmount, setCardAmount ] = useState(0);
     const [ addToCollection, setAddToCollection ] = useState('');
