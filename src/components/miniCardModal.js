@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export default function MiniCardModal({ card, isOpen, onClose, collection }) {
     const supabase = useSupabaseClient();
-    const [copyCount, setCopyCount] = useState(1); // Initialize to 1
+    const [ copyCount, setCopyCount ] = useState(1); // Initialize to 1
     const toast = useToast();
     const handleCopyCountChange = (value) => {
         setCopyCount(value);
@@ -17,7 +17,7 @@ export default function MiniCardModal({ card, isOpen, onClose, collection }) {
     return (
         <Modal isOpen={isOpen} onClose={onClose} size='md' isCentered>
             <ModalOverlay backdropFilter='blur(10px) hue-rotate(90deg)'/>
-            <ModalContent background='transparent' border='solid red 3px'>
+            <ModalContent background='transparent'>
                 <VStack>
                     <Image alt={card.cardName} src={card.card_images[0].image_url} height={600} width={500}/>
                     <HStack>
@@ -33,7 +33,7 @@ export default function MiniCardModal({ card, isOpen, onClose, collection }) {
                             bg='#86c232'                                    
                             _hover={{backgroundColor: '#61892f', color: '#fffeee', transition: 'all 0.3s ease 0s'}}
                             onClick={() => {
-                                addCardToCollection( supabase, card, collection, copyCount)
+                                addCardToCollection(supabase, card, collection, copyCount)
                                 onClose()
                                 toast({
                                     title: 'Card added to collection',

@@ -1,12 +1,12 @@
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseCli = createClient(
+const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL, 
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     
 );
 
-export default supabaseCli;
+export default supabase;
 // import { createClient } from "@supabase/supabase-js";
 
 // let supabase; // Declare supabase outside the component.

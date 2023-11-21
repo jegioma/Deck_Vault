@@ -1,3 +1,5 @@
+import supabase from "../../../../utils/supabase";
+
 //fetch all collections from the specified user 
 export async function fetchCollections(user, supabase) {
     try {
