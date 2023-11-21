@@ -2,20 +2,6 @@
     font-family: RapidTech;
     src: url(/fonts/RapidTechRegular.ttf);
 }
-.header {
-    display: flex;
-    align-items: center;
-    width: 100vw;
-    margin: 0;    
-}
-
-.title {
-    margin-right: auto;
-    font-size: 6rem;
-    font-weight: 700;
-    color: #61892F;
-    margin-left: 2rem;
-}
 .links {
     list-style: none;
     font-weight: 700;

@@ -2,12 +2,11 @@ import {
     Modal, ModalOverlay, ModalContent, Heading, ModalBody,
     HStack, Input, FormLabel, ModalCloseButton, IconButton
 } from '@chakra-ui/react'; 
-import { ArrowRightIcon } from '@chakra-ui/icons';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { createCollection, refreshCollection } from '@/pages/api/cardData/collectionAPI';
 import { useState } from 'react';
 
 export default function NewCardModal({ isOpen, onClose, user, supabase, setCollections }) {
-
     const [ collectionName, setCollectionName ] = useState('');
     
     return (
@@ -21,7 +20,7 @@ export default function NewCardModal({ isOpen, onClose, user, supabase, setColle
                         <FormLabel color='#fffeee'>Name:</FormLabel>
                         <Input bg='#fffeee' type='text' placeholder='Collection Name'  onChange={(event) => setCollectionName(event.target.value)} />
                         <IconButton
-                            icon={<ArrowRightIcon />}
+                            icon={<ArrowForwardIcon />}
                             bg='#86c232'
                             _hover={{backgroundColor: '#61892f', color: '#fffeee'}}
                             onClick={() => createCollection(collectionName, user, () => {

@@ -3,9 +3,7 @@ import {
     Modal, ModalOverlay, ModalContent, Heading, Image, HStack
 } from '@chakra-ui/react'; 
 
-export default function CardDetails({ card, isOpen, onClose }) {
-
-    
+export default function CardDetails({ card, isOpen, onClose }) { 
     const cardAttribute = (card) => {
         if (card.attribute != null) {
             switch (card.attribute) {

@@ -1,5 +1,5 @@
 import {
-  Box, Container, HStack, VStack, Flex, Heading, Text, Button, IconButton, Icon
+  Container, HStack, VStack, Flex, Heading, Text, Button
 } from '@chakra-ui/react'
 import Link from 'next/link';
 import ImageSlider from '@/components/imageCarousel'
@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import fetchData from './api/cardData/homeAPI';
 
 export default function Home() {
-
   const [ imageUrls, setImageUrls ] = useState([]);
 
   useEffect(() => {
@@ -15,6 +14,7 @@ export default function Home() {
       try {
         const data = await fetchData();
         setImageUrls(data);
+        console.log('useEffect triggered from index page')
       } catch (error) {
         console.error('Error:', error);
       }

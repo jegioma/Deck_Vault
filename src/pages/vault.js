@@ -1,9 +1,9 @@
 import {
-    Box, SimpleGrid, Grid, GridItem, VStack, WrapItem,
-    HStack, Stack, Text, Heading, Image, Card, Center,
+    Box, SimpleGrid, VStack, Tooltip, Stack, Text, Heading, Card, Center,
     IconButton, useDisclosure, Button
-} from '@chakra-ui/react'
-import { AddIcon, EditIcon } from '@chakra-ui/icons'
+} from '@chakra-ui/react';
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -12,7 +12,6 @@ import NewCardModal from '@/components/newCardModal';
 
 
 export default function Vault() {
-
     const supabase = useSupabaseClient();
     const user = useUser();
     const [ collections, setCollections ] = useState([]);
@@ -25,9 +24,8 @@ export default function Vault() {
           setCollections(collectionData);
         }).catch((error) => {
           console.log(error);
-          console.log(supabase.auth.session)
         })
-    }, [ supabase, user])
+    }, [supabase, user])
     
     function slugify(text) {
       return text
@@ -38,7 +36,6 @@ export default function Vault() {
         .replace(/[^\w\-]+/g, '') // Remove all non-word characters
         .replace(/\-\-+/g, '-'); // Replace multiple - with single -
     }
-    
 
     return (
       <>
@@ -50,14 +47,16 @@ export default function Vault() {
                 <Card padding={3} >
                   <Stack align='center'>
                     <Heading fontSize='lg' margin={3}>New Collection</Heading>
-                    <IconButton
-                      bg='#86c232'
-                      size='md'
-                      onClick={onOpen} 
-                      cursor='pointer'
-                      _hover={{backgroundColor: '#61892f', color: '#fffeee'}}
-                      icon={<AddIcon />}
-                    />
+                    <Tooltip label='Create Collection' aria-label='A tooltip'>
+                      <IconButton
+                        bg='#86c232'
+                        size='md'
+                        onClick={onOpen} 
+                        cursor='pointer'
+                        _hover={{backgroundColor: '#61892f', color: '#fffeee'}}
+                        icon={<AddIcon />}
+                      />
+                    </Tooltip>
                   </Stack>
                 </Card>
               {
@@ -67,13 +66,15 @@ export default function Vault() {
                       <Stack align='center'>
                         <Heading textAlign='left' fontSize='md' color='#000'>{collection.name}</Heading>
                         <Text justifySelf='left' >Card Total: {collection.totalCards ? collection.totalCards : '0'}</Text>
-                        <IconButton
-                          icon={<EditIcon />}
-                          bg='#86c232'
-                          cursor='pointer'
-                          _hover={{backgroundColor: '#61892f', color: '#fffeee'}}
-                          size='md'
-                        />
+                        <Tooltip label='Edit Collection' aria-label='A tooltip'>
+                          <IconButton
+                            icon={<EditIcon />}
+                            bg='#86c232'
+                            cursor='pointer'
+                            _hover={{backgroundColor: '#61892f', color: '#fffeee'}}
+                            size='md'
+                          />
+                        </Tooltip>
                       </Stack>
                     </Card>
                   </Link>

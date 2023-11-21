@@ -1,14 +1,13 @@
-import CardDetails from '@/components/cardDetailsModal';
-import { SearchIcon } from '@chakra-ui/icons'
 import {
     Box, Wrap, WrapItem, InputGroup, Input, InputLeftElement, 
     Image, Button, Center, Card, Alert, AlertIcon, Container,
     HStack, Text
 } from '@chakra-ui/react'
+import CardDetails from '@/components/cardDetailsModal';
+import SearchIcon from '@mui/icons-material/Search';
 import { useState, useEffect, memo } from 'react';
 
 export default function Search() {
-
     const url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php';
     const MemoizedImage = memo(Image);
     const MemoCard = memo(Card);
@@ -19,7 +18,6 @@ export default function Search() {
     const [ cardInfo, setCardInfo ] = useState('');
     const [ hasNoResults, setHasNoResults ] = useState(false);
     const [ showCollectionsModal, setShowCollectionsModal ] = useState(false);
-//    const { user } = useAuth();
 
     useEffect(() => {
         try {
@@ -67,7 +65,6 @@ export default function Search() {
     }
     const handleCardClick = card => {
         setSelectedCard(card);
-        setShowCollectionsModal(true);
     }
 
     return (
@@ -103,26 +100,12 @@ export default function Search() {
                     {
                         cardList.length > 0 && cardList.map(card => (
                             <WrapItem key={card.id}>
-                                <MemoCard
-                                    
-                                    backgroundColor='transparent'
-                                >
+                                <MemoCard backgroundColor='transparent'>
                                     <MemoizedImage 
                                         src={card.card_images[0].image_url_small}
                                         alt={card.cardName}
                                         onClick={() => handleCardClick(card)}
                                     />
-                                <Button 
-                                    size='sm' 
-                                    backgroundColor='transparent'
-                                    border='3px solid #86c232' 
-                                    color='#86c232'                                    
-                                    _hover={{backgroundColor: '#61892f', color: '#fffeee', transition: 'all 0.3s ease 0s'}}
-                                    marginTop={3}
-                                >Add Card</Button>
-                                {
-                                    //collection button group
-                                }
                                 </MemoCard>
                             </WrapItem>
                         ))

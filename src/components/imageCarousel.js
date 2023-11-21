@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
 import {
   Container, Image
 } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
 
 export default function ImageSlider({ imageUrls }) {
   const [ currentImageIndex, setCurrentImageIndex ] = useState(0);
@@ -16,6 +16,7 @@ export default function ImageSlider({ imageUrls }) {
     return () => {
       clearInterval(interval);
     }
+
   }, [imageUrls]);
 
   return (

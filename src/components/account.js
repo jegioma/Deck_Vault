@@ -5,9 +5,7 @@ import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useState, useEffect, useCallback } from 'react';
 import { fetchCollections } from '@/pages/api/cardData/collectionAPI';
 
-export default function Account({session}) {
-
-    
+export default function Account({ session }) {
     const supabase = useSupabaseClient();
     const user = useUser();
     const [ collections, setCollections ] = useState([]);
@@ -39,25 +37,6 @@ export default function Account({session}) {
             console.log(error);
           });
       }, [session, supabase, user.id, user, getProfile]);
-      
-
-    //  async function getProfile(user) {
-    //     try {
-    //         let { data, error, status } = await supabase
-    //             .from('profiles')
-    //             .select(`avatar`)
-    //             .eq('id', user.id)
-    //             .single();
-    
-    //             if (error & status !== 406) throw error;
-    
-    //             if (data) setAvatarUrl(data.avatar);
-    //     } catch (error) {
-    //         alert('Error loading user data!');
-    //         console.log(error);
-    //     }
-    // }
-    
 
     return (
         <Container bg='#d9d9d9' height='30rem'> 
@@ -82,7 +61,14 @@ export default function Account({session}) {
                     </UnorderedList>
                 </VStack>
             </SimpleGrid>
-            <Button marginTop='3rem' size='md' bg='#86c232' color='#000' _hover={{backgroundColor: '#61892f', color: '#fffeee', transition: 'all 0.3s ease 0s'}} onClick={() => supabase.auth.signOut()}>Logout</Button>
+            <Button 
+              marginTop='3rem' 
+              size='md' 
+              bg='#86c232' 
+              color='#000' 
+              _hover={{backgroundColor: '#61892f', color: '#fffeee', transition: 'all 0.3s ease 0s'}} 
+              onClick={() => supabase.auth.signOut()}
+            >Logout</Button>
         </Container>
     )
 }

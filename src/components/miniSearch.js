@@ -1,9 +1,10 @@
-import { SearchIcon, ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import {
-    Box, Wrap, WrapItem, InputGroup, Input, InputLeftElement,
-    Image, Button, Center, Card, Alert, AlertIcon, Container,
+    Wrap, WrapItem, InputGroup, Input, InputLeftElement, Image, Card, Container,
     HStack, Text, IconButton, useToast
 } from '@chakra-ui/react';
+import SearchIcon from '@mui/icons-material/Search';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useState, useEffect, memo } from 'react';
 import MiniCardModal from './miniCardModal';
 
@@ -47,7 +48,6 @@ export default function MiniSearch({ collection }) {
         }
     }, [searchPerformed, cardInfo]);
     
-
     const handleSearch = (event) => {
         if (event.key === 'Enter') {
             try {

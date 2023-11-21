@@ -1,4 +1,3 @@
-import { NextApiHandler } from 'next'
 import { createPagesServerClient } from '@supabase/auth-helpers-nextjs'
 
 const handler = async (req, res) => {
