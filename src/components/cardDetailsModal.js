@@ -2,8 +2,10 @@ import ModalBodyType from '@/pages/api/cardData/searchApi';
 import {
     Modal, ModalOverlay, ModalContent, Heading, Image, HStack
 } from '@chakra-ui/react'; 
+import { useUser } from '@supabase/auth-helpers-react';
 
 export default function CardDetails({ card, isOpen, onClose }) { 
+    const user = useUser();
     const cardAttribute = (card) => {
         if (card.attribute != null) {
             switch (card.attribute) {
@@ -35,7 +37,7 @@ export default function CardDetails({ card, isOpen, onClose }) {
                     <Image bg='#61892f' alt={card.cardName} src={cardAttribute(card)} width={50} height={50}/>
                 </HStack>
                 {
-                    <ModalBodyType card={card} />
+                    <ModalBodyType card={card} user={user} />
                 }
             </ModalContent>
         </Modal>

@@ -4,11 +4,10 @@ import {
 } from '@chakra-ui/react';
 import LaunchIcon from '@mui/icons-material/Launch';
 import ClearIcon from '@mui/icons-material/Clear';
-import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
+import { useUser } from '@supabase/auth-helpers-react';
 import { deleteCard, refreshCurrentCollection } from '@/pages/api/cardData/collectionAPI';
 
-export default function CollectionDisplay({ collection, id }) {
-    const supabase = useSupabaseClient();
+export default function CollectionDisplay({ collection, id, supabase }) {
     const user = useUser();
     const toast = useToast();    
 
@@ -35,7 +34,7 @@ export default function CollectionDisplay({ collection, id }) {
                     <Tooltip label='Delete Card' aria-label='A tooltip'>
                         <IconButton
                             onClick={() => {
-                                deleteCard(cardId, id, supabase, user);
+                                deleteCard(cardId, id, user, supabase);
                                 toast({
                                     title: 'Card deleted from collection',
                                     status: 'success',

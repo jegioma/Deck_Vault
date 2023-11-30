@@ -6,7 +6,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { createCollection, refreshCollection } from '@/pages/api/cardData/collectionAPI';
 import { useState } from 'react';
 
-export default function NewCardModal({ isOpen, onClose, user, supabase, setCollections }) {
+export default function NewCardModal({ isOpen, onClose, user, setCollections, supabase }) {
     const [ collectionName, setCollectionName ] = useState('');
     
     return (
@@ -23,7 +23,7 @@ export default function NewCardModal({ isOpen, onClose, user, supabase, setColle
                             icon={<ArrowForwardIcon />}
                             bg='#86c232'
                             _hover={{backgroundColor: '#61892f', color: '#fffeee'}}
-                            onClick={() => createCollection(collectionName, user, () => {
+                            onClick={() => createCollection(collectionName, user, supabase, () => {
                                 onClose();
                                 refreshCollection(user, supabase)
                                     .then((updatedCollections) => {

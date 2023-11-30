@@ -17,7 +17,6 @@ export default function Search() {
     const [ cardList, setCardList ] = useState([]);
     const [ cardInfo, setCardInfo ] = useState('');
     const [ hasNoResults, setHasNoResults ] = useState(false);
-    const [ showCollectionsModal, setShowCollectionsModal ] = useState(false);
 
     useEffect(() => {
         try {
@@ -114,17 +113,17 @@ export default function Search() {
                 <HStack justify='center' spacing={50} marginTop={10}>
                     <Button 
                         bg='#86c232'
+                        fontSize='md'
                         size='lg'
-                        width='20rem'
                         _hover={{backgroundColor: '#61892f', color: '#fffeee', transition: 'all 0.3s ease 0s'}}
                         marginTop={10}
                         onClick={() => setNumResults(numResults + 12)}
-                    >Load More Results</Button>
-                    <Text marginTop={10} bg='#61892f' color='#fffeee' border='5px #61892f outset' padding={2} fontSize='lg'>{cardList.length} Results</Text>
+                    >Load More</Button>
+                    <Text marginTop={10} bg='#61892f' color='#fffeee' border='5px #61892f outset' padding={1} fontSize='md'>{cardList.length} Results</Text>
                     <Button 
                         bg='#86c232'
                         size='lg'
-                        width='20rem'
+                        fontSize='md'
                         _hover={{backgroundColor: '#61892f', color: '#fffeee', transition: 'all 0.3s ease 0s'}}
                         marginTop={10}
                         onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}

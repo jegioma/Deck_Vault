@@ -4,7 +4,7 @@ import {
 } from '@chakra-ui/react';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
-import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
+import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { fetchCollections } from '@/pages/api/cardData/collectionAPI';
@@ -12,8 +12,8 @@ import NewCardModal from '@/components/newCardModal';
 
 
 export default function Vault() {
-    const supabase = useSupabaseClient();
     const user = useUser();
+    const supabase = useSupabaseClient();
     const [ collections, setCollections ] = useState([]);
     const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -25,7 +25,7 @@ export default function Vault() {
         }).catch((error) => {
           console.log(error);
         })
-    }, [supabase, user])
+    }, [user, supabase])
     
     function slugify(text) {
       return text
@@ -46,7 +46,7 @@ export default function Vault() {
               <SimpleGrid columns={[2, 3, 4]} spacing={10} padding='2rem'>
                 <Card padding={3} >
                   <Stack align='center'>
-                    <Heading fontSize='lg' margin={3}>New Collection</Heading>
+                    <Heading fontSize='lg' margin={3}>Create Collection</Heading>
                     <Tooltip label='Create Collection' aria-label='A tooltip'>
                       <IconButton
                         bg='#86c232'
@@ -81,16 +81,20 @@ export default function Vault() {
                 ))
               }
             </SimpleGrid>
-            <NewCardModal user={user} isOpen={isOpen} onClose={onClose} supabase={supabase} setCollections={setCollections} />
+            <NewCardModal user={user} isOpen={isOpen} onClose={onClose} setCollections={setCollections} supabase={supabase} />
           </VStack>
         </Box>
         ) : (
           <Center padding='3rem' margin='auto' marginTop='5rem' borderRadius={15} width='50%' backgroundColor='#d9d9d9'>
               <VStack>
-                <Heading>Login Required</Heading>
+                <Heading>Account Required</Heading>
                 <Text fontSize='lg' textAlign='center'>To access your collections and enjory our other features, please log in or create an account</Text>
                 <Link href='/login'>
-                  <Button size='lg' bg ='#86c232' _hover={{backgroundColor: '#61892f', color: '#fffeee', transition: 'all 0.3s ease 0s'}}>Login</Button>
+                  <Button 
+                    size='lg' 
+                    bg ='#86c232' 
+                    _hover={{backgroundColor: '#61892f', color: '#fffeee', transition: 'all 0.3s ease 0s'}}
+                  >Login</Button>
                 </Link>
               </VStack>
           </Center>

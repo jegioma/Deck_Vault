@@ -1,18 +1,17 @@
 import {
     HStack, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper,
-    Menu, MenuButton, MenuItem, MenuList, MenuItemOption, MenuGroup, MenuDivider, MenuOptionGroup, Button, useToast
+    Menu, MenuButton, MenuItem, MenuList, Button, useToast
 } from '@chakra-ui/react';
 import MenuIcon from '@mui/icons-material/Menu';
 import { addCardToCollection, fetchCollections } from '@/pages/api/cardData/collectionAPI';
 import { useEffect, useState } from 'react'
 import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react';
 
-export default function CollectionStepper({ card }) {
+export default function CollectionStepper({ card, toast }) {
     const [ copyCount, setCopyCount ] = useState(1);
     const [ collections, setCollections ] = useState([]);
-    const user = useUser();
     const supabase = useSupabaseClient();
-    const toast = useToast();
+    const user = useUser();
 
     useEffect(() => {
         fetchCollections(user, supabase)
@@ -21,12 +20,11 @@ export default function CollectionStepper({ card }) {
             }).catch((error) => {
                 console.log(error);
             })
-    }, [supabase, user])
+    }, [user, supabase])
 
     const handleCopyCountChange = (value) => {
         setCopyCount(value);
     }
-
 
     return (
         <HStack margin={0} padding={0} spacing={10} marginTop='2rem'>
@@ -38,7 +36,12 @@ export default function CollectionStepper({ card }) {
                 </NumberInputStepper>
             </NumberInput>
             <Menu>
-                <MenuButton bg='#61892f' _hover={{backgroundColor: '#61892f', color: '#fffeee', transition: 'all 0.3s ease 0s'}} as={Button} rightIcon={<MenuIcon />} >Add To</MenuButton>
+                <MenuButton 
+                    bg='#86c232' 
+                    _hover={{backgroundColor: '#61892f', color: '#fffeee', transition: 'all 0.3s ease 0s'}} 
+                    as={Button} 
+                    rightIcon={<MenuIcon />} 
+                >Add To</MenuButton>
                 <MenuList bg='#222629'>
                     {
                         collections.map(collectionItem => (
@@ -48,14 +51,13 @@ export default function CollectionStepper({ card }) {
                                 _hover={{backgroundColor: '#61892f'}}
                                 onClick={() => {
                                     const collection = (collectionItem.id)
-                                    addCardToCollection(supabase, card, collection, copyCount);
-                                    console.log(collection)
+                                    addCardToCollection(card, collection, copyCount, supabase);
                                     toast({
                                         title: 'Card added to collection',
                                         status: 'success',
                                         position: 'top-right',
                                         duration: 2000,
-                                    })
+                                    });
                                 }}
                             >{collectionItem.name}</MenuItem>
                         ))

@@ -8,7 +8,7 @@ const theme = extendTheme({
         width: '100vw',
         backgroundSize: '300% 300%',
         backgroundImage: 'radial-gradient(#474B4F, #222629)',
-        animation: 'gradient 5s linear infinite',
+        animation: 'gradient 10s linear infinite',
         '@keyframes gradient': {
           '0%': {
             backgroundPosition: '100% 0%',

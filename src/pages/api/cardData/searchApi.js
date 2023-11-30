@@ -1,16 +1,14 @@
 import {
-    ModalBody, Image, Text, HStack, VStack, 
-    Box, Stack, Container, Divider, Accordion, 
-    AccordionButton, AccordionItem, AccordionIcon, AccordionPanel
+    ModalBody, Image, Text, HStack, VStack, Box, Stack, Container, Divider, Accordion, 
+    AccordionButton, AccordionItem, AccordionIcon, AccordionPanel, useToast
 } from '@chakra-ui/react'; 
 import CollectionStepper from '@/components/collectionStepper';
-import { useUser } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 
- export default function ModalBodyType({ card }) {
+ export default function ModalBodyType({ card, user }) {
     const router = useRouter();
     const showStepper = router.pathname == '/search'
-    const user = useUser();
+    const toast = useToast();
 
     switch (card.frameType) {
         case "xyz":
@@ -35,7 +33,7 @@ import { useRouter } from 'next/router';
                                 <Divider />
                                 <Text fontSize='md' color='#fffeee'>{card.desc}</Text>
                             </Container>
-                            {user && showStepper && <CollectionStepper card={card}/> }
+                            {user && showStepper && <CollectionStepper card={card} toast={toast}/> }
                         </VStack>
                     </Stack>
                 </ModalBody>
@@ -59,7 +57,7 @@ import { useRouter } from 'next/router';
                                 <Divider />
                                 <Text fontSize='md' color='#fffeee'>{card.desc}</Text>
                             </Container>
-                            {user && showStepper && <CollectionStepper card={card}/> }
+                            {user && showStepper && <CollectionStepper card={card} toast={toast}/> }
                         </VStack>
                     </Stack>
                 </ModalBody>
@@ -90,7 +88,7 @@ import { useRouter } from 'next/router';
                                 <Divider />
                                 <Text fontSize='md' color='#fffeee'>{card.desc}</Text>
                             </Container>
-                            {user && showStepper && <CollectionStepper card={card}/> }
+                            {user && showStepper && <CollectionStepper card={card} toast={toast}/> }
                         </VStack>
                     </Stack>
                 </ModalBody>
@@ -139,7 +137,7 @@ import { useRouter } from 'next/router';
                                     </AccordionItem>
                                 </Accordion>
                             </Container>
-                            {user && showStepper && <CollectionStepper card={card}/> }
+                            {user && showStepper && <CollectionStepper card={card} toast={toast}/> }
                         </VStack>
                     </Stack>
                 </ModalBody>
@@ -184,7 +182,7 @@ import { useRouter } from 'next/router';
                                         </AccordionItem>
                                     </Accordion>
                                 </Container>
-                                {user && showStepper && <CollectionStepper card={card}/> }
+                                {user && showStepper && <CollectionStepper card={card} toast={toast}/> }
                             </VStack>
                         </Stack>
                     </ModalBody>
@@ -209,7 +207,7 @@ import { useRouter } from 'next/router';
                                 <Divider />
                                 <Text fontSize='lg' color='#fffeee'>{card.desc}</Text>
                             </Container>
-                            {user && showStepper && <CollectionStepper card={card}/> }
+                            {user && showStepper && <CollectionStepper card={card} toast={toast}/> }
                         </VStack>
                     </Stack>
                 </ModalBody>

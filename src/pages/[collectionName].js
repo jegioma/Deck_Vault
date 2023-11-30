@@ -10,7 +10,7 @@ import AlertDialogDeleteCollection from '@/components/alertDialogs';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { fetchCollectionByName, deleteCard, refreshCurrentCollection } from '@/pages/api/cardData/collectionAPI';
-import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
+import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react';
 import CardDetails from '@/components/cardDetailsModal';
 
 export default function CollectionPage() {
@@ -60,15 +60,13 @@ export default function CollectionPage() {
                       bg='#61892f'
                       color='#fffeee'
                       _hover={{ backgroundColor: '#86c232', color: '#000' }}
-                      onClick={() => refreshCurrentCollection(id, supabase, setCollection)}
+                      onClick={() => refreshCurrentCollection(id, setCollection, supabase)}
                     />
                   </Tooltip>            
                     <Tooltip label='Delete Collection' aria-label='A tooltip'>
                     <IconButton icon={<DeleteForeverIcon />} 
                       size='md'
-                      bg='#FF2400'
-                      color='#fffeee'
-                      _hover={{ backgroundColor: '#880808', color: '#000' }}
+                      colorScheme='red'
                       onClick={onOpen}
                     />
                   </Tooltip>
@@ -110,8 +108,7 @@ export default function CollectionPage() {
                           });
                         }}
                         icon={<ClearIcon />}
-                        bg='#c00000'
-                        _hover={{ backgroundColor: '#880808', color: '#fffeee' }}
+                        colorScheme='red'
                         size='xs'
                       />
                     </Tooltip>
@@ -125,7 +122,7 @@ export default function CollectionPage() {
           </>
         )}
         </SimpleGrid>
-        <AlertDialogDeleteCollection isOpen={isOpen} onClose={onClose} id={id} user={user} supabase={supabase} />
+        <AlertDialogDeleteCollection isOpen={isOpen} onClose={onClose} id={id} user={user} supabase={supabase}/>
         {
           selectedCard && (
             <CardDetails 

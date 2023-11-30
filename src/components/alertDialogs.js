@@ -5,7 +5,7 @@ import { deleteCollection } from '@/pages/api/cardData/collectionAPI';
 import { useRef } from 'react';
 import { useRouter } from 'next/router';
 
-export default function AlertDialogDeleteCollection({ id, user, supabase, isOpen, onClose }) {
+export default function AlertDialogDeleteCollection({ isOpen, onClose, id, user, supabase}) {
     const cancelRef = useRef();
     const router = useRouter();
 

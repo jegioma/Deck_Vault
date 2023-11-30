@@ -26,6 +26,8 @@ export default function ImageSlider({ imageUrls }) {
         alt={`Image ${currentImageIndex}`}
         border='outset 10px #61892f'
         boxShadow= '2px 2px 5px 5px'
+        width={400}
+        height={550}
        />
     </Container>
   )

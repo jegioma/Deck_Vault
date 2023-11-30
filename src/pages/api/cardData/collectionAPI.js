@@ -1,4 +1,4 @@
-import supabase from "../../../../utils/supabase";
+// import supabase from "../../../../utils/supabase";
 
 //fetch all collections from the specified user 
 export async function fetchCollections(user, supabase) {
@@ -35,7 +35,7 @@ export async function refreshCollection(user, supabase) {
 }
 
 //refresh selected collection to show new/recently added cards
-export async function refreshCurrentCollection(id, supabase, callback) {
+export async function refreshCurrentCollection(id, callback, supabase) {
     try {
         const { data, error } = await supabase
             .from('collections')
@@ -60,7 +60,7 @@ export async function refreshCurrentCollection(id, supabase, callback) {
 }
 
 //create new collection for the user 
-export async function createCollection(collectionName, user, callback) {
+export async function createCollection(collectionName, user, supabase, callback) {
     if (!collectionName) {
         alert('Please enter a name for the collection');
         return;
@@ -81,7 +81,7 @@ export async function createCollection(collectionName, user, callback) {
 }
 
 //update name of the selected collection
-export async function updateCollectionName(id, name) {
+export async function updateCollectionName(id, name, supabase) {
     try {
         const { data, error } = await supabase
         .from('collections')
@@ -161,7 +161,7 @@ export async function deleteCard(cardId, id, supabase, callback) {
 
             // If a callback function is provided, call it to refresh the collection.
             if (callback && typeof callback === 'function') {
-                refreshCurrentCollection(id, supabase, callback);
+                refreshCurrentCollection(id, callback, supabase);
             }
         } else {
             console.log('Card not found in collection');
@@ -190,7 +190,7 @@ export async function fetchCollectionByName(id, user, supabase) {
 }
   
 //add card and data to selected collection
-export async function addCardToCollection(supabase, card, collection, copyCount) {
+export async function addCardToCollection(card, collection, copyCount, supabase) {
     try {
         const cardID = card.id;
         const cardName = card.name;

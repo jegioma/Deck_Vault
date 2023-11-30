@@ -3,13 +3,13 @@ import {
     NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, useToast
 } from '@chakra-ui/react'; 
 import { addCardToCollection } from '@/pages/api/cardData/collectionAPI';
-import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useState } from 'react';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
 export default function MiniCardModal({ card, isOpen, onClose, collection }) {
-    const supabase = useSupabaseClient();
     const [ copyCount, setCopyCount ] = useState(1); // Initialize to 1
     const toast = useToast();
+    const supabase = useSupabaseClient();
     const handleCopyCountChange = (value) => {
         setCopyCount(value);
     }
@@ -33,7 +33,7 @@ export default function MiniCardModal({ card, isOpen, onClose, collection }) {
                             bg='#86c232'                                    
                             _hover={{backgroundColor: '#61892f', color: '#fffeee', transition: 'all 0.3s ease 0s'}}
                             onClick={() => {
-                                addCardToCollection(supabase, card, collection, copyCount)
+                                addCardToCollection(card, collection, copyCount, supabase)
                                 onClose()
                                 toast({
                                     title: 'Card added to collection',

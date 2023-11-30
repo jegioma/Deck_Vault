@@ -6,7 +6,7 @@ import Account from "@/components/account";
 
 export default function Login() {
 
-    const supabaseClient = useSupabaseClient();
+    const supabase = useSupabaseClient();
     const session = useSession();
 
     return (
@@ -15,8 +15,8 @@ export default function Login() {
                 !session ? (
                     <Auth
                         redirectTo="http://localhost:3000/login"
-                        supabaseClient={supabaseClient}
-                        providers={['google', 'github']}
+                        supabaseClient={supabase}
+                        providers={[]}
                         socialLayout="horizontal"
                         appearance={{
                             theme: loginTheme,
