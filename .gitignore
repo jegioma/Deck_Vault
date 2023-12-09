@@ -18,6 +18,11 @@
 # misc
 .DS_Store
 *.pem
+package-lock.json
+package.json
+next.config.json
+jsconfig.json
+.eslintrc.json
 
 # debug
 npm-debug.log*
