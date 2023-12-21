@@ -1,5 +1,6 @@
 import { CSSReset, ChakraProvider, Box } from '@chakra-ui/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/react'
 import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs'
 import { SessionContextProvider } from '@supabase/auth-helpers-react'
 import { useState } from 'react'
@@ -19,6 +20,7 @@ import Header from '@/components/header';
               <Header />
               <Component {...pageProps} supabaseClient={supabaseClient} />
               <SpeedInsights />
+              <Analytics />
             </Box>
           </ChakraProvider>
       </SessionContextProvider>
