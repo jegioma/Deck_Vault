@@ -44,9 +44,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="/public/images/landingPage.png" />
+<img src="/public/images/homePage.png" />
 
-This is a group project to demonstrate our capabilities to work and develop a full-stack application with the purpose of real-world use. It's developed with [Next JS](https://nextjs.org) with [Chakra UI](https://chakra-ui.com) as our front-end and [Firebase](https://firebase.google.com) as our back-end and hosting service. Additionally, we're using the [Open Movie Database API](http://www.omdbapi.com) and [The Movie Database API](https://developer.themoviedb.org/docs) to get our data. 
+This project focuses on using the [Official Yu-Gi-Oh API](https://ygoprodeck.com/api-guide/) to let users search for their favorite cards. With an account, uses have access to more features with the main one being the ability to create a Collection to store and organize their cards digitally. This was built with [Next JS](https://nextjs.org) and [Chakra UI](https://chakra-ui.com) for the front-end and [Supabase](https://supabase.com) as the database. Hosting is done with [Vercel](https://vercel.com).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
