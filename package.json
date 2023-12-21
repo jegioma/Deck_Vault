@@ -20,6 +20,7 @@
     "@supabase/auth-ui-react": "^0.4.4",
     "@supabase/auth-ui-shared": "^0.1.6",
     "@supabase/supabase-js": "^2.33.2",
+    "@vercel/speed-insights": "^1.0.2",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "next": "13.4.19",
